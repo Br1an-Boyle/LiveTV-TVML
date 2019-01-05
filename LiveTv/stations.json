@@ -1,0 +1,37 @@
+[
+  {
+    "title":"RTE One",
+    "logoURL":"https://imgur.com/IBt4OZW.png",
+    "streamURL":"http://vapi.vaders.tv/play/16923.m3u8/?token=",
+    "type": "station",
+    "ID": 1
+  },
+  {
+    "title":"RTE Two",
+    "logoURL":"https://imgur.com/VOxEjX9.png",
+    "streamURL":"http://vapi.vaders.tv/play/16931.m3u8/?token=",
+    "type": "station",
+    "ID": 2
+  },
+  {
+    "title":"RTE Jr",
+    "logoURL":"https://imgur.com/zmhY4Pw.png",
+    "streamURL":"http://vapi.vaders.tv/play/16933.m3u8/?token=",
+    "type": "station",
+    "ID": 3
+  },
+  {
+    "title":"TG4",
+    "logoURL":"https://imgur.com/TAEXbPy.png",
+    "streamURL":"http://vapi.vaders.tv/play/16944.m3u8/?token=",
+    "type": "station",
+    "ID": 4
+  },
+  {
+    "title":"TV3",
+    "logoURL":"https://imgur.com/f7XA9cJ.png",
+    "streamURL":"http://vapi.vaders.tv/play/16945.m3u8/?token=",
+    "type": "station",
+    "ID": 5
+  }
+]

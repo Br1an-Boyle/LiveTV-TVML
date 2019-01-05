@@ -8,11 +8,13 @@
 #import "AppDelegate.h"
 
 // tvBaseURL points to a server on your local machine. To create a local server for testing purposes, use the following command inside your project folder from the Terminal app: ruby -run -ehttpd . -p9001. See NSAppTransportSecurity for information on using a non-secure server.
-static NSString *tvBaseURL = @"http://localhost:9001/";
-static NSString *tvBootURL = @"http://localhost:9001/application.js";
+//static NSString *tvBaseURL = @"file://LiveTV/";
+//static NSString *tvBootURL = @"file://LiveTV/js/application.js";
 
 @interface AppDelegate ()
-
+    @property (nonatomic, strong) NSURL *rootURL;
+    @property (nonatomic, strong) NSString *mainScript;
+    @property (nonatomic, strong) TVApplicationController *tvAppController;
 @end
 
 @implementation AppDelegate
@@ -34,24 +36,22 @@ static NSString *tvBootURL = @"http://localhost:9001/application.js";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    TVApplicationControllerContext *tvAppContext = [[TVApplicationControllerContext alloc] init];
     
-    // Create the TVApplicationControllerContext for this application and set the properties that will be passed to the `App.onLaunch` function in JavaScript.
-    TVApplicationControllerContext *appControllerContext = [[TVApplicationControllerContext alloc] init];
+    // Set us up the main javascript file, and our root path
+    tvAppContext.javaScriptApplicationURL = [[NSBundle mainBundle] URLForResource:@"application" withExtension:@"js"];
+    self.rootURL = [tvAppContext.javaScriptApplicationURL URLByDeletingLastPathComponent];
+    self.mainScript = @"index.js";
     
-    // The JavaScript URL is used to create the JavaScript context for your TVMLKit application. Although it is possible to separate your JavaScript into separate files, to help reduce the launch time of your application we recommend creating minified and compressed version of this resource. This will allow for the resource to be retrieved and UI presented to the user quickly.
-    NSURL *javaScriptURL = [NSURL URLWithString:tvBootURL];
-    appControllerContext.javaScriptApplicationURL = javaScriptURL;
+    // Set up our options
+    NSMutableDictionary *dict = [launchOptions mutableCopy];
+    if (!dict) dict = [[NSMutableDictionary alloc] initWithCapacity:1];
+    [dict setObject:[self.rootURL absoluteString] forKey:@"baseURL"];
+    [dict setObject:self.mainScript forKey:@"mainScript"];
+    tvAppContext.launchOptions = dict;
     
-    NSMutableDictionary *appControllerOptions = [appControllerContext.launchOptions mutableCopy];
-    appControllerOptions[@"BASEURL"] = tvBaseURL;
-    
-    for (NSString *key in launchOptions) {
-        appControllerOptions[key] = launchOptions[key];
-    }
-    appControllerContext.launchOptions = appControllerOptions;
-    
-    self.appController = [[TVApplicationController alloc] initWithContext:appControllerContext window:self.window delegate:self];
-
+    // Initialize the application controller
+    self.tvAppController = [[TVApplicationController alloc] initWithContext:tvAppContext window:self.window delegate:self];
     return YES;
 }
 

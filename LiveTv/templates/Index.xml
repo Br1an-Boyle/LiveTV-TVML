@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+    <head>
+        <style>
+            .lockup {
+                height: 100;
+            }
+            .mediaContentLockup {
+                width: 857;
+                height: 482;
+            }
+            .logo {
+                width: 253;
+                height: 80;
+            }
+        </style>
+    </head>
+    <listTemplate>
+        <banner>
+            <title>TV Channels</title>
+        </banner>
+        <list>
+            <prototypes>
+                <listItemLockup prototype="station" class="lockup" binding="@mediaContent:{streamURL};" onselect="presentVideo(event.currentTarget)" onhighlight="setupMediaContent(event.currentTarget, event.target.getAttribute('mediaContent'), event.target.getAttribute('artworkURL'))">
+                   <title binding="textContent:{title};" />
+                    <decorationImage class="logo" binding="@src:{logoURL};" />
+                    <relatedContent>
+                        <lockup>
+                            <mediaContent playbackMode="always" audioMode="never">
+                                <img class="mediaContentLockup" src="" aspectFill="true" />
+                            </mediaContent>
+                        </lockup>
+                    </relatedContent>
+                </listItemLockup>
+            </prototypes>
+            <section binding="items:{stations};" />
+        </list>
+    </listTemplate>
+</document>

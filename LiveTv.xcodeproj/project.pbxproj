@@ -10,16 +10,27 @@
 		AD3769BD2139C77600E7C8EE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3769BC2139C77600E7C8EE /* AppDelegate.m */; };
 		AD3769C02139C77B00E7C8EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD3769BF2139C77B00E7C8EE /* Assets.xcassets */; };
 		AD3769C32139C77B00E7C8EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3769C22139C77B00E7C8EE /* main.m */; };
+		ADFE201021E00B8C0035CEFA /* DocumentLoader.js in Resources */ = {isa = PBXBuildFile; fileRef = ADFE200D21E00B8C0035CEFA /* DocumentLoader.js */; };
+		ADFE201221E00B8C0035CEFA /* DocumentController.js in Resources */ = {isa = PBXBuildFile; fileRef = ADFE200F21E00B8C0035CEFA /* DocumentController.js */; };
+		ADFE201521E00BB00035CEFA /* stations.json in Resources */ = {isa = PBXBuildFile; fileRef = ADFE201421E00BB00035CEFA /* stations.json */; };
+		ADFE201621E00DDE0035CEFA /* application.js in Resources */ = {isa = PBXBuildFile; fileRef = ADFE200E21E00B8C0035CEFA /* application.js */; };
+		ADFE201821E00E1F0035CEFA /* Index.xml in Resources */ = {isa = PBXBuildFile; fileRef = ADFE201721E00E1F0035CEFA /* Index.xml */; };
+		ADFE201A21E0126A0035CEFA /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = ADFE201921E0126A0035CEFA /* index.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AD3769B82139C77600E7C8EE /* LiveTv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveTv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD3769BB2139C77600E7C8EE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AD3769BC2139C77600E7C8EE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		AD3769BE2139C77600E7C8EE /* application.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = application.js; sourceTree = "<group>"; };
 		AD3769BF2139C77B00E7C8EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD3769C12139C77B00E7C8EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD3769C22139C77B00E7C8EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ADFE200D21E00B8C0035CEFA /* DocumentLoader.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = DocumentLoader.js; path = js/DocumentLoader.js; sourceTree = "<group>"; };
+		ADFE200E21E00B8C0035CEFA /* application.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = application.js; path = js/application.js; sourceTree = "<group>"; };
+		ADFE200F21E00B8C0035CEFA /* DocumentController.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = DocumentController.js; path = js/DocumentController.js; sourceTree = "<group>"; };
+		ADFE201421E00BB00035CEFA /* stations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = stations.json; path = LiveTv/stations.json; sourceTree = SOURCE_ROOT; };
+		ADFE201721E00E1F0035CEFA /* Index.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Index.xml; path = templates/Index.xml; sourceTree = "<group>"; };
+		ADFE201921E0126A0035CEFA /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = index.js; path = js/index.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,14 +63,43 @@
 		AD3769BA2139C77600E7C8EE /* LiveTv */ = {
 			isa = PBXGroup;
 			children = (
+				ADFE201321E00BA40035CEFA /* json */,
+				ADFE200C21E00AE30035CEFA /* templates */,
+				ADFE200921E00AA20035CEFA /* js */,
 				AD3769BB2139C77600E7C8EE /* AppDelegate.h */,
 				AD3769BC2139C77600E7C8EE /* AppDelegate.m */,
-				AD3769BE2139C77600E7C8EE /* application.js */,
 				AD3769BF2139C77B00E7C8EE /* Assets.xcassets */,
 				AD3769C12139C77B00E7C8EE /* Info.plist */,
 				AD3769C22139C77B00E7C8EE /* main.m */,
 			);
 			path = LiveTv;
+			sourceTree = "<group>";
+		};
+		ADFE200921E00AA20035CEFA /* js */ = {
+			isa = PBXGroup;
+			children = (
+				ADFE201921E0126A0035CEFA /* index.js */,
+				ADFE200E21E00B8C0035CEFA /* application.js */,
+				ADFE200F21E00B8C0035CEFA /* DocumentController.js */,
+				ADFE200D21E00B8C0035CEFA /* DocumentLoader.js */,
+			);
+			name = js;
+			sourceTree = "<group>";
+		};
+		ADFE200C21E00AE30035CEFA /* templates */ = {
+			isa = PBXGroup;
+			children = (
+				ADFE201721E00E1F0035CEFA /* Index.xml */,
+			);
+			name = templates;
+			sourceTree = "<group>";
+		};
+		ADFE201321E00BA40035CEFA /* json */ = {
+			isa = PBXGroup;
+			children = (
+				ADFE201421E00BB00035CEFA /* stations.json */,
+			);
+			path = json;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,7 +157,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADFE201821E00E1F0035CEFA /* Index.xml in Resources */,
+				ADFE201621E00DDE0035CEFA /* application.js in Resources */,
+				ADFE201221E00B8C0035CEFA /* DocumentController.js in Resources */,
+				ADFE201521E00BB00035CEFA /* stations.json in Resources */,
+				ADFE201A21E0126A0035CEFA /* index.js in Resources */,
 				AD3769C02139C77B00E7C8EE /* Assets.xcassets in Resources */,
+				ADFE201021E00B8C0035CEFA /* DocumentLoader.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
