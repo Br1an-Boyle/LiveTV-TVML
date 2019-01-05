@@ -54,7 +54,7 @@ function populateStations(document) {
                                     let stationItem = new DataItem(station.type, station.ID);
                                     stationItem.logoURL = station.logoURL;
                                     stationItem.title = station.title;
-                                    stationItem.streamURL = station.streamURL;
+                                    stationItem.streamURL = station.streamURL + authToken;
                                     return stationItem;
                                     });
     

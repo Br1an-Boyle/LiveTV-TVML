@@ -7,10 +7,6 @@
 
 #import "AppDelegate.h"
 
-// tvBaseURL points to a server on your local machine. To create a local server for testing purposes, use the following command inside your project folder from the Terminal app: ruby -run -ehttpd . -p9001. See NSAppTransportSecurity for information on using a non-secure server.
-//static NSString *tvBaseURL = @"file://LiveTV/";
-//static NSString *tvBootURL = @"file://LiveTV/js/application.js";
-
 @interface AppDelegate ()
     @property (nonatomic, strong) NSURL *rootURL;
     @property (nonatomic, strong) NSString *mainScript;
@@ -48,6 +44,8 @@
     if (!dict) dict = [[NSMutableDictionary alloc] initWithCapacity:1];
     [dict setObject:[self.rootURL absoluteString] forKey:@"baseURL"];
     [dict setObject:self.mainScript forKey:@"mainScript"];
+    [dict setObject:[NSProcessInfo.processInfo.environment objectForKey:@"token"] forKey:@"token"];
+    
     tvAppContext.launchOptions = dict;
     
     // Initialize the application controller

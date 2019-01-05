@@ -2,6 +2,7 @@
 App.onLaunch = function(options) {
 
     baseURL = options.baseURL;
+    authToken = options.token;
 
     const helperScriptURLs = [
         "DocumentLoader.js",
